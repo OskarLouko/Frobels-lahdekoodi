@@ -1,6 +1,7 @@
 package motor;
 
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import sensorit.kosketussensoriluokka;
 
 public class Moottori {
 
@@ -10,7 +11,6 @@ public class Moottori {
 	private static EV3LargeRegulatedMotor largeMotorc;
 	private static EV3LargeRegulatedMotor largeMotord;
 	
-	
 	public Moottori(EV3LargeRegulatedMotor largeMotora, EV3LargeRegulatedMotor largeMotorb,EV3LargeRegulatedMotor largeMotorc,EV3LargeRegulatedMotor largeMotord){
 		
 		Moottori.largeMotora = largeMotora;
@@ -18,11 +18,17 @@ public class Moottori {
 		Moottori.largeMotorc = largeMotorc;
 		Moottori.largeMotord = largeMotord;
 		
+		
 	}
+	
+	
 	
 	public static void liikuta(int remoteCommand){
 		
+		
 		switch (remoteCommand) {
+		
+		
 		
 		case 1:
 			
@@ -54,6 +60,7 @@ public class Moottori {
 			
 		case 5:
 			
+			kosketussensoriluokka.tarkista(remoteCommand);
 			largeMotord.forward();
 			
 			break;
